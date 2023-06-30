@@ -1,0 +1,19 @@
+<!-- clinics.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clinics</title>
+</head>
+<body>
+    <h1>List of Clinics</h1>
+    <ul>
+        {% for clinic in clinics %}
+            <li>
+                <a href="{% url 'doctors' clinic.id %}">{{ clinic.name }}</a>
+            </li>
+        {% empty %}
+            <li>No clinics to display</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

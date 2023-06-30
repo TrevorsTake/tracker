@@ -1,0 +1,15 @@
+<!-- new_visit.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Visit</title>
+</head>
+<body>
+    <h1>New Visit</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Visit</button>
+    </form>
+</body>
+</html>

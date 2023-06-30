@@ -1,0 +1,59 @@
+<!-- visits/dashboard.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+{% block content %}
+  <h1>Dashboard</h1>
+
+  <h2>Clinics</h2>
+  <div class="clinics-container">
+    {% for clinic in clinics %}
+      <div class="clinic-card">
+        <h3>{{ clinic.name }}</h3>
+        <p>{{ clinic.address }}</p>
+        <!-- Add more clinic details as needed -->
+      </div>
+    {% empty %}
+      <p>No clinics found.</p>
+    {% endfor %}
+  </div>
+
+  <h2>Doctors</h2>
+  <div class="doctors-container">
+    {% for doctor in doctors %}
+      <div class="doctor-card">
+        <h3>{{ doctor.name }}</h3>
+        <p>{{ doctor.specialty }}</p>
+        <!-- Add more doctor details as needed -->
+      </div>
+    {% empty %}
+      <p>No doctors found.</p>
+    {% endfor %}
+  </div>
+
+  <h2>Visits</h2>
+  <div class="visits-container">
+    {% for visit in visits %}
+      <div class="visit-card">
+        <h3>{{ visit.date }}</h3>
+        <p>{{ visit.description }}</p>
+        <!-- Add more visit details as needed -->
+      </div>
+    {% empty %}
+      <p>No visits found.</p>
+    {% endfor %}
+  </div>
+
+  <h2>Add Clinic</h2>
+  <div class="add-clinic-form">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+{% endblock %}

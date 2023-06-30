@@ -1,0 +1,19 @@
+<!-- visits.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visits</title>
+</head>
+<body>
+    <h1>List of Visits</h1>
+    <ul>
+        {% for visit in visits %}
+            <li>
+                {{ visit.date }} - {{ visit.notes }}
+            </li>
+        {% empty %}
+            <li>No visits to display</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
